@@ -2,32 +2,103 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+.custom-link {
+  @apply relative no-underline tracking-wide text-white;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  &::after {
+    content: "";
+    @apply absolute bg-[#EAEAEA];
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s;
+  }
+
+  &:hover {
+    @apply text-[#dfdfdf];
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.background {
+  background-image: url(../Images/bg-img.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.nwa {
+  background-image: url(../Images/img.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
+ .peter{
+  background-color: red;
+}
+
+.nav{
+  height: 0;
+  transition: height 0.5s ease;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  background-color: red;
+} 
+
+/* li{
+  list-style: none;
+} */
+.nav li a{
+  display: block;
+  color: white;
+  text-align: center;
+  margin: 6px 0;
+  height: 10%;
+  padding: 14px;
+  width: 100%;
+}
+
+.show-nav{
+  background-color: red;
+} 
+
+.favorite-icon {
+  width: 20px; /* Adjust size as needed */
+  cursor: pointer;
+  filter: grayscale(100%); /* Default state: grayscale */
+  transition: background-color 0.3s ease;
+}
+
+.all::-webkit-scrollbar {
+  display: none;
+}
+
+.favorite-icon.favorited {
+  background-color: red; /* Favorited state: original color */
+}
+
+.text {
+  font-family: Playfair Display;
+}
+
+.papa {
+  backdrop-filter: blur(200px);
+}
+
+.nnedi {
+  backdrop-filter: blur(40px);
+}
+
+/* @media screen and (max-width: 600px){
+  .nav li a{
+    @apply flex;
+  }
+} */
